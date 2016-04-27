@@ -6,42 +6,31 @@ try:
 except ImportError:
     pass  # self.DEBUG("Psyco optimizing compiler not found","warn")
 
-import sys
-import xml.dom.minidom
-import traceback
-import xmpp
-import threading
+import copy
+import mutex
 import thread
-import Queue
-import time
-import MessageReceiver
-import AID
-import XMLCodec
-import ACLParser
-import Envelope
+import threading
+import types
+import uuid
+import xml.dom.minidom
+
 import ACLMessage
-import BasicFipaDateTime
+import ACLParser
+import AID
 import Behaviour
-import SL0Parser
+import Envelope
+import MessageReceiver
+import RPC
+import XMLCodec
+import bdi
+import colors
 import fipa
 import peer2peer as P2P
-import socialnetwork
-import RPC
 import pubsub
-import bdi
-from logic import *
+import socialnetwork
+import xmpp
 from kb import *
 
-import mutex
-import types
-import random
-import string
-import copy
-import socket
-import SocketServer
-import colors
-import cPickle as pickle
-import uuid
 try:
     import json
 except ImportError:

@@ -6,13 +6,11 @@ This file shows a simple agent which runs
 a Finite State Machine Behaviour (FSM).
 You need to be running a SPADE platform on the same host
 '''
-
+import spade
+import time
 import sys,os
 sys.path.append('..'+os.sep+'trunk')
 sys.path.append('..')
-
-import spade
-import time
 
 class MyAgent(spade.Agent.Agent):
 	class StateOne(spade.Behaviour.OneShotBehaviour):

@@ -1,3 +1,7 @@
 SPARQLWrapper
 unittest-xml-reporting
 simplejson
+pykalman
+matplotlib
+pylab
+pyparticleest

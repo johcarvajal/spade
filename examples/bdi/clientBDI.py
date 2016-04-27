@@ -9,13 +9,12 @@ agents contained in server1BDI.py and server2BDI.py
 This agent uses a BDI Behaviour
 You need to be running a SPADE platform host
 '''
-import os
+
 import sys
-import unittest
+
 sys.path.append('../..')
 sys.path.append('..')
 
-import spade
 from spade.bdi import Goal
 from spade.Agent import BDIAgent
 

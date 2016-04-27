@@ -78,6 +78,6 @@ while alive:
     try:
         time.sleep(1)
     except KeyboardInterrupt:
-        alive=False
+        alive = False
 a.stop()
 sys.exit(0)

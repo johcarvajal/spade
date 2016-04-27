@@ -10,31 +10,29 @@ in order to check it is properly registered.
 You need to be running a SPADE platform on the same host
 '''
 
-
-import sys
 import os
+import sys
+
 sys.path.append('..'+os.sep+'trunk')
 sys.path.append('..')
 
-from spade import *
-from spade.ACLMessage import *
-from string import *
+import spade
 from time import sleep
-from xmpp import *
 
-class RegisterAgent(Agent.Agent):
-    class BehaviourDef(Behaviour.Behaviour):
+
+class RegisterAgent(spade.Agent.Agent):
+    class BehaviourDef(spade.Behaviour.Behaviour):
         def _process(self):
             sleep(1)
 
         def onStart(self):
             try:
-                sd = DF.ServiceDescription()
+                sd = spade.DF.ServiceDescription()
                 sd.setName("test")
                 sd.setType("testservice")
-                dad = DF.DfAgentDescription()
+                dad = spade.DF.DfAgentDescription()
                 dad.addService(sd)
-                sd = DF.ServiceDescription()
+                sd = spade.DF.ServiceDescription()
                 sd.setName("MYSERVICE")
                 sd.setType("MYTYPE")
                 dad.addService(sd)
@@ -43,8 +41,8 @@ class RegisterAgent(Agent.Agent):
                 print "Service Registered:",str(res)
                 
                 # Now the search
-                dad = DF.DfAgentDescription()
-                ds = DF.ServiceDescription()
+                dad = spade.DF.DfAgentDescription()
+                ds = spade.DF.ServiceDescription()
                 ds.setType("testservice")
                 dad.addService(ds)
                 search = self.myAgent.searchService(dad)
@@ -57,7 +55,7 @@ class RegisterAgent(Agent.Agent):
 
     def _setup(self):
         db = self.BehaviourDef()
-        self.addBehaviour(db, Behaviour.MessageTemplate(Behaviour.ACLTemplate()))
+        self.addBehaviour(db, spade.Behaviour.MessageTemplate(spade.Behaviour.ACLTemplate()))
 
 if __name__ == "__main__":
     host = os.getenv("HOSTNAME")

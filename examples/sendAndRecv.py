@@ -5,7 +5,7 @@
 This is the most simple example about how
 to send a message between 2 agents
 '''
-
+# noinspection PyUnresolvedReferences
 import os
 import sys
 import time
@@ -62,14 +62,19 @@ b.start()
 import time
 time.sleep(1)
 a.start()
-
 alive = True
-import time
+alive = True
+counter = 0
 while alive:
-    try:
-        time.sleep(1)
-    except KeyboardInterrupt:
-        alive=False
+    time.sleep(1)
+    counter = counter + 1
+    print("Alive")
+    print(counter)
+    if counter == 15:
+        alive = False
+    else:
+        alive = True
 a.stop()
 b.stop()
+print("Agents finished their job")
 sys.exit(0)
